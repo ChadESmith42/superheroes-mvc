@@ -1,13 +1,13 @@
 ﻿@model IEnumerable<SuperheroesInc.DATA.EF.SourceOfPower>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Source of Powers";
 }
 
-<h2>Index</h2>
+<h2>@ViewBag.Title</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("New Source of Powers", "Create", null, htmlAttributes: new { @class = "btn btn-success"})
 </p>
 <table class="table">
     <tr>
@@ -23,9 +23,9 @@
             @Html.DisplayFor(modelItem => item.Description)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.SourceID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.SourceID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.SourceID })
+            @Html.ActionLink("Edit", "Edit", new { id=item.SourceID }, htmlAttributes: new { @class = "btn btn-warning" }) &ensp;
+            @Html.ActionLink("Details", "Details", new { id=item.SourceID }, htmlAttributes: new { @class = "btn btn-primary" }) &ensp;
+            @Html.ActionLink("Delete", "Delete", new { id=item.SourceID }, htmlAttributes: new { @class = "btn btn-danger" })
         </td>
     </tr>
 }

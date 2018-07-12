@@ -4,10 +4,9 @@
     ViewBag.Title = "Details";
 }
 
-<h2>Details</h2>
+<h2>@Html.DisplayFor(model => model.Name) @ViewBag.Title for @Html.DisplayFor(model => model.Date)</h2>
 
 <div>
-    <h4>Cours</h4>
     <hr />
     <dl class="dl-horizontal">
         <dt>
@@ -53,6 +52,10 @@
     </dl>
 </div>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.ID }) |
-    @Html.ActionLink("Back to List", "Index")
+    @if (User.IsInRole("Admin"))
+    {
+        @Html.ActionLink("Edit", "Edit", new { id = Model.ID }, htmlAttributes: new { @class = "btn btn-warning" })
+    }
+
+    @Html.ActionLink("All Courses", "Index", null, htmlAttributes: new { @class = "btn btn-primary" })
 </p>

@@ -41,7 +41,7 @@
           <Property Name="Name" Type="varchar" MaxLength="100" Nullable="false" />
           <Property Name="Description" Type="varchar" MaxLength="500" />
           <Property Name="TypeID" Type="int" Nullable="false" />
-          <Property Name="Date" Type="date" />
+          <Property Name="Date" Type="datetime" />
           <Property Name="Location" Type="varchar" MaxLength="140" />
         </EntityType>
         <EntityType Name="CourseTypes">
@@ -236,7 +236,7 @@
           <Property Name="Name" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
           <Property Name="Description" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
           <Property Name="TypeID" Type="Int32" Nullable="false" />
-          <Property Name="Date" Type="DateTime" Precision="0" />
+          <Property Name="Date" Type="DateTime" Precision="3" />
           <Property Name="Location" Type="String" MaxLength="140" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="CourseCharacters" Relationship="SuperherosIncModel.FK_CourseCharacters_Courses" FromRole="Cours" ToRole="CourseCharacter" />
           <NavigationProperty Name="CourseType" Relationship="SuperherosIncModel.FK_Courses_CourseTypes" FromRole="Cours" ToRole="CourseType" />

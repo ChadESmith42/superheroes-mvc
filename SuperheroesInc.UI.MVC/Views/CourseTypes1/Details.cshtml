@@ -4,10 +4,9 @@
     ViewBag.Title = "Details";
 }
 
-<h2>Details</h2>
+<h2>@ViewBag.Title for @Html.DisplayFor(model => model.Type)</h2>
 
 <div>
-    <h4>CourseType</h4>
     <hr />
     <dl class="dl-horizontal">
         <dt>
@@ -21,6 +20,6 @@
     </dl>
 </div>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.TypeID }) |
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Edit", "Edit", new { id = Model.TypeID }, htmlAttributes: new { @class = "btn btn-danger"})
+    @Html.ActionLink("All Course Types", "Index", null, htmlAttributes: new { @class = "btn btn-primary"})
 </p>

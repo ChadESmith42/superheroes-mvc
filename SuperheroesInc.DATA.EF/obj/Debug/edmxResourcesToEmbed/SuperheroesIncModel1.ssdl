@@ -36,7 +36,7 @@
     <Property Name="Name" Type="varchar" MaxLength="100" Nullable="false" />
     <Property Name="Description" Type="varchar" MaxLength="500" />
     <Property Name="TypeID" Type="int" Nullable="false" />
-    <Property Name="Date" Type="date" />
+    <Property Name="Date" Type="datetime" />
     <Property Name="Location" Type="varchar" MaxLength="140" />
   </EntityType>
   <EntityType Name="CourseTypes">
