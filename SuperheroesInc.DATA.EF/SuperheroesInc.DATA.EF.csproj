@@ -69,7 +69,7 @@
     <Compile Include="Metadata\Alignment.cs" />
     <Compile Include="Metadata\Cours.cs" />
     <Compile Include="Metadata\CourseType.cs" />
-    <Compile Include="Metadata\SourceOfPowers.cs" />
+    <Compile Include="Metadata\SourceOfPower.cs" />
     <Compile Include="Metadata\Superheroes.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SourceOfPower.cs">

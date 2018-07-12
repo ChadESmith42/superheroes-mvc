@@ -15,6 +15,7 @@ namespace SuperheroesInc.UI.MVC.Controllers
         private SuperherosIncEntities db = new SuperherosIncEntities();
 
         // GET: Characters
+        [Authorize]
         public ActionResult Index()
         {
             var characters = db.Characters.Include(c => c.Alignment).Include(c => c.SourceOfPower);
@@ -22,6 +23,7 @@ namespace SuperheroesInc.UI.MVC.Controllers
         }
 
         // GET: Characters/Details/5
+        [Authorize]
         public ActionResult Details(int? id)
         {
             if (id == null)
@@ -37,6 +39,7 @@ namespace SuperheroesInc.UI.MVC.Controllers
         }
 
         // GET: Characters/Create
+        [Authorize(Roles ="Admin")]
         public ActionResult Create()
         {
             ViewBag.AlignmentID = new SelectList(db.Alignments, "AlignmentID", "Description");
@@ -49,6 +52,7 @@ namespace SuperheroesInc.UI.MVC.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Admin")]
         public ActionResult Create([Bind(Include = "ID,Name,Alias,BirthDate,SourceOfPowers,Age,Sex,AlignmentID")] Character character)
         {
             if (ModelState.IsValid)
@@ -64,6 +68,7 @@ namespace SuperheroesInc.UI.MVC.Controllers
         }
 
         // GET: Characters/Edit/5
+        [Authorize(Roles = "Admin")]
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -85,6 +90,7 @@ namespace SuperheroesInc.UI.MVC.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Admin")]
         public ActionResult Edit([Bind(Include = "ID,Name,Alias,BirthDate,SourceOfPowers,Age,Sex,AlignmentID")] Character character)
         {
             if (ModelState.IsValid)
@@ -99,6 +105,7 @@ namespace SuperheroesInc.UI.MVC.Controllers
         }
 
         // GET: Characters/Delete/5
+        [Authorize(Roles = "Admin")]
         public ActionResult Delete(int? id)
         {
             if (id == null)
@@ -116,6 +123,7 @@ namespace SuperheroesInc.UI.MVC.Controllers
         // POST: Characters/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Admin")]
         public ActionResult DeleteConfirmed(int id)
         {
             Character character = db.Characters.Find(id);

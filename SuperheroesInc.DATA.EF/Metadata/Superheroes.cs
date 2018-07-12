@@ -16,15 +16,19 @@ namespace SuperheroesInc.DATA.EF//.Metadata
     public class CharacterMetadata
     {
         [Required]
-        [Display(Name="Name")]
-        [StringLength(50,ErrorMessage ="* Max 50 Characters")]
+        [Display(Name = "Name")]
+        [StringLength(50, ErrorMessage = "* Max 50 Characters")]
         public string Name { get; set; }
-        [StringLength(100,ErrorMessage ="* Max 100 Characters")]
+        [StringLength(100, ErrorMessage = "* Max 100 Characters")]
         public string Alias { get; set; }
-        [Display(Name="Birthday")]
-        [DisplayFormat(DataFormatString ="{0:d}")]
+        [Display(Name = "Birthday")]
+        [DisplayFormat(DataFormatString = "{0:d}")]
         public Nullable<System.DateTime> BirthDate { get; set; }
         public Nullable<int> Age { get; set; }
         public string Sex { get; set; }
+        [Display(Name = "Alignment")]
+        public virtual Alignment Alignment { get; set; }
+        [Display(Name = "Source of Power")]
+        public virtual SourceOfPower SourceOfPower { get; set; }
     }
 }

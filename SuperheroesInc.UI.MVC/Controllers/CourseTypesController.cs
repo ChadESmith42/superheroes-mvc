@@ -15,12 +15,14 @@ namespace SuperheroesInc.UI.MVC.Controllers
         private SuperherosIncEntities db = new SuperherosIncEntities();
 
         // GET: CourseTypes
+        [Authorize(Roles = "Admin")]
         public ActionResult Index()
         {
             return View(db.CourseTypes.ToList());
         }
 
         // GET: CourseTypes/Details/5
+        [Authorize(Roles = "Admin")]
         public ActionResult Details(int? id)
         {
             if (id == null)
@@ -36,6 +38,7 @@ namespace SuperheroesInc.UI.MVC.Controllers
         }
 
         // GET: CourseTypes/Create
+        [Authorize(Roles = "Admin")]
         public ActionResult Create()
         {
             return View();
@@ -46,6 +49,7 @@ namespace SuperheroesInc.UI.MVC.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Admin")]
         public ActionResult Create([Bind(Include = "TypeID,Type")] CourseType courseType)
         {
             if (ModelState.IsValid)
@@ -59,6 +63,7 @@ namespace SuperheroesInc.UI.MVC.Controllers
         }
 
         // GET: CourseTypes/Edit/5
+        [Authorize(Roles = "Admin")]
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -78,6 +83,7 @@ namespace SuperheroesInc.UI.MVC.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Admin")]
         public ActionResult Edit([Bind(Include = "TypeID,Type")] CourseType courseType)
         {
             if (ModelState.IsValid)
@@ -90,6 +96,7 @@ namespace SuperheroesInc.UI.MVC.Controllers
         }
 
         // GET: CourseTypes/Delete/5
+        [Authorize(Roles = "Admin")]
         public ActionResult Delete(int? id)
         {
             if (id == null)
@@ -107,6 +114,7 @@ namespace SuperheroesInc.UI.MVC.Controllers
         // POST: CourseTypes/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Admin")]
         public ActionResult DeleteConfirmed(int id)
         {
             CourseType courseType = db.CourseTypes.Find(id);

@@ -37,6 +37,7 @@ namespace SuperheroesInc.UI.MVC.Controllers
         }
 
         // GET: Cours/Create
+        [Authorize(Roles = "Admin")]
         public ActionResult Create()
         {
             ViewBag.TypeID = new SelectList(db.CourseTypes, "TypeID", "Type");
@@ -48,6 +49,7 @@ namespace SuperheroesInc.UI.MVC.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Admin")]
         public ActionResult Create([Bind(Include = "ID,Name,Description,TypeID,Date,Location")] Cours cours)
         {
             if (ModelState.IsValid)
@@ -62,6 +64,7 @@ namespace SuperheroesInc.UI.MVC.Controllers
         }
 
         // GET: Cours/Edit/5
+        [Authorize(Roles = "Admin")]
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -82,6 +85,7 @@ namespace SuperheroesInc.UI.MVC.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Admin")]
         public ActionResult Edit([Bind(Include = "ID,Name,Description,TypeID,Date,Location")] Cours cours)
         {
             if (ModelState.IsValid)
@@ -95,6 +99,7 @@ namespace SuperheroesInc.UI.MVC.Controllers
         }
 
         // GET: Cours/Delete/5
+        [Authorize(Roles = "Admin")]
         public ActionResult Delete(int? id)
         {
             if (id == null)
@@ -112,6 +117,7 @@ namespace SuperheroesInc.UI.MVC.Controllers
         // POST: Cours/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Admin")]
         public ActionResult DeleteConfirmed(int id)
         {
             Cours cours = db.Courses.Find(id);

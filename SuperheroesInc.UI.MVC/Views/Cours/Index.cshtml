@@ -1,13 +1,13 @@
 ﻿@model IEnumerable<SuperheroesInc.DATA.EF.Cours>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Available Courses";
 }
 
-<h2>Index</h2>
+<h2>@ViewBag.Title</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Add New Course", "Create", null, htmlAttributes: new { @class = "btn btn-primary" })
 </p>
 <table class="table">
     <tr>
@@ -26,7 +26,12 @@
         <th>
             @Html.DisplayNameFor(model => model.CourseType.Type)
         </th>
-        <th></th>
+        <th> 
+            Details
+        </th>
+        <th>
+            Admin
+        </th>
     </tr>
 
 @foreach (var item in Model) {
@@ -47,10 +52,17 @@
             @Html.DisplayFor(modelItem => item.CourseType.Type)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.ID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.ID })
+            @Html.ActionLink("Details", "Details", new { id = item.ID }, htmlAttributes: new {@class = "btn btn-primary" })
         </td>
+        
+        @if (User.IsInRole("Admin"))
+        {
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.ID }, htmlAttributes: new {@class = "btn btn-primary" })
+                @Html.ActionLink("Delete", "Delete", new { id = item.ID }, htmlAttributes: new { @class = "btn btn-danger" })
+            </td>
+        }
+        
     </tr>
 }
 
