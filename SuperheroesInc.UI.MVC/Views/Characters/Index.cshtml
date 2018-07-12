@@ -67,14 +67,14 @@
                     @Html.DisplayFor(modelItem => item.SourceOfPower.Description)
                 </td>
                 <td>
-                    @Html.ActionLink("Details", "Details", new { id = item.ID })
+                    @Html.ActionLink("Details", "Details", new { id = item.ID }, htmlAttributes: new { @class = "btn btn-primary"})
                 </td>
                 @if (User.IsInRole("Admin"))
                 {
                     <td>
-                        @Html.ActionLink("Edit", "Edit", new { id = item.ID }) |
+                        @Html.ActionLink("Edit", "Edit", new { id = item.ID }, htmlAttributes: new { @class = "btn btn-warning" }) &ensp;
 
-                        @Html.ActionLink("Delete", "Delete", new { id = item.ID })
+                        @Html.ActionLink("Delete", "Delete", new { id = item.ID }, htmlAttributes: new { @class = "btn btn-danger" })
                     </td>
                 }
                 
