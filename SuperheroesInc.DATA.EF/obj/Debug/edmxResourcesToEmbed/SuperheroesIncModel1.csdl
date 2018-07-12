@@ -1,0 +1,154 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="SuperherosIncModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Alignment">
+    <Key>
+      <PropertyRef Name="AlignmentID" />
+    </Key>
+    <Property Name="AlignmentID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Description" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Characters" Relationship="SuperherosIncModel.FK_Characters_Alignments" FromRole="Alignment" ToRole="Character" />
+  </EntityType>
+  <EntityType Name="CourseType">
+    <Key>
+      <PropertyRef Name="TypeID" />
+    </Key>
+    <Property Name="TypeID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Type" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="Courses" Relationship="SuperherosIncModel.FK_Courses_CourseTypes" FromRole="CourseType" ToRole="Cours" />
+  </EntityType>
+  <EntityType Name="SourceOfPower">
+    <Key>
+      <PropertyRef Name="SourceID" />
+    </Key>
+    <Property Name="SourceID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Description" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Characters" Relationship="SuperherosIncModel.FK_Characters_SourceOfPowers" FromRole="SourceOfPower" ToRole="Character" />
+  </EntityType>
+  <EntityContainer Name="SuperherosIncEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Alignments" EntityType="Self.Alignment" />
+    <EntitySet Name="CourseTypes" EntityType="Self.CourseType" />
+    <EntitySet Name="SourceOfPowers" EntityType="Self.SourceOfPower" />
+    <EntitySet Name="Characters" EntityType="SuperherosIncModel.Character" />
+    <EntitySet Name="CourseCharacters" EntityType="SuperherosIncModel.CourseCharacter" />
+    <EntitySet Name="Courses" EntityType="SuperherosIncModel.Cours" />
+    <AssociationSet Name="FK_Characters_Alignments" Association="SuperherosIncModel.FK_Characters_Alignments">
+      <End Role="Alignment" EntitySet="Alignments" />
+      <End Role="Character" EntitySet="Characters" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Characters_SourceOfPowers" Association="SuperherosIncModel.FK_Characters_SourceOfPowers">
+      <End Role="SourceOfPower" EntitySet="SourceOfPowers" />
+      <End Role="Character" EntitySet="Characters" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CourseCharacters_Characters" Association="SuperherosIncModel.FK_CourseCharacters_Characters">
+      <End Role="Character" EntitySet="Characters" />
+      <End Role="CourseCharacter" EntitySet="CourseCharacters" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CourseCharacters_Courses" Association="SuperherosIncModel.FK_CourseCharacters_Courses">
+      <End Role="Cours" EntitySet="Courses" />
+      <End Role="CourseCharacter" EntitySet="CourseCharacters" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Courses_CourseTypes" Association="SuperherosIncModel.FK_Courses_CourseTypes">
+      <End Role="CourseType" EntitySet="CourseTypes" />
+      <End Role="Cours" EntitySet="Courses" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Character">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Alias" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="BirthDate" Type="DateTime" Precision="0" />
+    <Property Name="SourceOfPowers" Type="Int32" />
+    <Property Name="Age" Type="Int32" />
+    <Property Name="Sex" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="AlignmentID" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Alignment" Relationship="SuperherosIncModel.FK_Characters_Alignments" FromRole="Character" ToRole="Alignment" />
+    <NavigationProperty Name="SourceOfPower" Relationship="SuperherosIncModel.FK_Characters_SourceOfPowers" FromRole="Character" ToRole="SourceOfPower" />
+    <NavigationProperty Name="CourseCharacters" Relationship="SuperherosIncModel.FK_CourseCharacters_Characters" FromRole="Character" ToRole="CourseCharacter" />
+  </EntityType>
+  <EntityType Name="CourseCharacter">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="CourseID" Type="Int32" Nullable="false" />
+    <Property Name="CharacterID" Type="Int32" Nullable="false" />
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <NavigationProperty Name="Character" Relationship="SuperherosIncModel.FK_CourseCharacters_Characters" FromRole="CourseCharacter" ToRole="Character" />
+    <NavigationProperty Name="Cours" Relationship="SuperherosIncModel.FK_CourseCharacters_Courses" FromRole="CourseCharacter" ToRole="Cours" />
+  </EntityType>
+  <EntityType Name="Cours">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Description" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="TypeID" Type="Int32" Nullable="false" />
+    <Property Name="Date" Type="DateTime" Precision="0" />
+    <Property Name="Location" Type="String" MaxLength="140" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="CourseCharacters" Relationship="SuperherosIncModel.FK_CourseCharacters_Courses" FromRole="Cours" ToRole="CourseCharacter" />
+    <NavigationProperty Name="CourseType" Relationship="SuperherosIncModel.FK_Courses_CourseTypes" FromRole="Cours" ToRole="CourseType" />
+  </EntityType>
+  <Association Name="FK_Characters_Alignments">
+    <End Type="SuperherosIncModel.Alignment" Role="Alignment" Multiplicity="1" />
+    <End Type="SuperherosIncModel.Character" Role="Character" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Alignment">
+        <PropertyRef Name="AlignmentID" />
+      </Principal>
+      <Dependent Role="Character">
+        <PropertyRef Name="AlignmentID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Characters_SourceOfPowers">
+    <End Type="SuperherosIncModel.SourceOfPower" Role="SourceOfPower" Multiplicity="0..1" />
+    <End Type="SuperherosIncModel.Character" Role="Character" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SourceOfPower">
+        <PropertyRef Name="SourceID" />
+      </Principal>
+      <Dependent Role="Character">
+        <PropertyRef Name="SourceOfPowers" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CourseCharacters_Characters">
+    <End Type="SuperherosIncModel.Character" Role="Character" Multiplicity="1" />
+    <End Type="SuperherosIncModel.CourseCharacter" Role="CourseCharacter" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Character">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="CourseCharacter">
+        <PropertyRef Name="CharacterID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CourseCharacters_Courses">
+    <End Type="SuperherosIncModel.Cours" Role="Cours" Multiplicity="1" />
+    <End Type="SuperherosIncModel.CourseCharacter" Role="CourseCharacter" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Cours">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="CourseCharacter">
+        <PropertyRef Name="CourseID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Courses_CourseTypes">
+    <End Type="SuperherosIncModel.CourseType" Role="CourseType" Multiplicity="1" />
+    <End Type="SuperherosIncModel.Cours" Role="Cours" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CourseType">
+        <PropertyRef Name="TypeID" />
+      </Principal>
+      <Dependent Role="Cours">
+        <PropertyRef Name="TypeID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

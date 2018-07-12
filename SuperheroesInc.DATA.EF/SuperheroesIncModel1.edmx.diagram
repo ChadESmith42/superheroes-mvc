@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="5b8177e3e2774ec592fbd1eefb72b030" Name="Diagram1">
+        <EntityTypeShape EntityType="SuperherosIncModel.Alignment" Width="1.5" PointX="0.75" PointY="1.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SuperherosIncModel.CourseType" Width="1.5" PointX="4.375" PointY="5.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="SuperherosIncModel.SourceOfPower" Width="1.5" PointX="0.75" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SuperherosIncModel.Character" Width="1.5" PointX="3" PointY="1" />
+        <EntityTypeShape EntityType="SuperherosIncModel.CourseCharacter" Width="1.5" PointX="5.25" PointY="1.5" />
+        <EntityTypeShape EntityType="SuperherosIncModel.Cours" Width="1.5" PointX="7.5" PointY="4.75" />
+        <AssociationConnector Association="SuperherosIncModel.FK_Characters_Alignments" />
+        <AssociationConnector Association="SuperherosIncModel.FK_Characters_SourceOfPowers" />
+        <AssociationConnector Association="SuperherosIncModel.FK_CourseCharacters_Characters" />
+        <AssociationConnector Association="SuperherosIncModel.FK_CourseCharacters_Courses" />
+        <AssociationConnector Association="SuperherosIncModel.FK_Courses_CourseTypes" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
