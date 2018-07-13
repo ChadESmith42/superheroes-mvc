@@ -52,6 +52,8 @@
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -172,6 +174,7 @@
     <Compile Include="Controllers\AlignmentsController.cs" />
     <Compile Include="Controllers\CharactersController.cs" />
     <Compile Include="Controllers\CoursController.cs" />
+    <Compile Include="Controllers\CourseCharactersController.cs" />
     <Compile Include="Controllers\CourseTypes1Controller.cs" />
     <Compile Include="Controllers\CourseTypesController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -184,6 +187,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\ContactViewModel.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -192,13 +196,30 @@
   <ItemGroup>
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\font-awesome.min.css" />
+    <Content Include="Content\img\header-bg.jpg" />
+    <Content Include="Content\img\map-marker.png" />
+    <Content Include="Content\material.min.css" />
+    <Content Include="Content\responsive.css" />
+    <Content Include="Content\ripples.min.css" />
+    <Content Include="Content\style.css" />
     <Content Include="favicon.ico" />
+    <Content Include="fonts\fontawesome-webfont.svg" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="fonts\Material-Design-Icons.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="map-marker.png" />
     <Content Include="ReadMe.txt" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Scripts\jquery-1.11.2.min.js" />
+    <Content Include="Scripts\jquery.particleground.min.js" />
+    <Content Include="Scripts\jquery.scrolly.js" />
+    <Content Include="Scripts\leaflet.js" />
+    <Content Include="Scripts\main.js" />
+    <Content Include="Scripts\material.min.js" />
+    <Content Include="Scripts\ripples.min.js" />
     <Content Include="_Archive\about.html" />
     <Content Include="_Archive\archive.html" />
     <Content Include="_Archive\contact.html" />
@@ -221,6 +242,7 @@
     <Content Include="_Archive\img\avatar_3.jpg" />
     <Content Include="_Archive\img\avatar_4.jpg" />
     <Content Include="_Archive\img\eva.jpg" />
+    <Content Include="_Archive\img\header-bg.jpg" />
     <Content Include="_Archive\img\post-1.jpg" />
     <Content Include="_Archive\img\post-2.jpg" />
     <Content Include="_Archive\img\single.jpg" />
@@ -233,6 +255,15 @@
     <Content Include="_Archive\js\ripples.min.js" />
     <Content Include="_Archive\single.html" />
     <Content Include="_Archive\style.css" />
+    <Content Include="fonts\fontawesome-webfont.eot" />
+    <Content Include="fonts\fontawesome-webfont.ttf" />
+    <Content Include="fonts\fontawesome-webfont.woff" />
+    <Content Include="fonts\fontawesome-webfont.woff2" />
+    <Content Include="fonts\FontAwesome.otf" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="fonts\Material-Design-Icons.eot" />
+    <Content Include="fonts\Material-Design-Icons.ttf" />
+    <Content Include="fonts\Material-Design-Icons.woff" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -324,6 +355,12 @@
     <Content Include="_Archive\fonts\Material-Design-Icons.eot" />
     <Content Include="_Archive\fonts\Material-Design-Icons.ttf" />
     <Content Include="_Archive\fonts\Material-Design-Icons.woff" />
+    <Content Include="Views\CourseCharacters\Create.cshtml" />
+    <Content Include="Views\CourseCharacters\Delete.cshtml" />
+    <Content Include="Views\CourseCharacters\Details.cshtml" />
+    <Content Include="Views\CourseCharacters\Edit.cshtml" />
+    <Content Include="Views\CourseCharacters\Index.cshtml" />
+    <Content Include="Views\Home\ContactConfirm.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -341,6 +378,9 @@
       <Project>{1f55498e-34af-4288-99ef-4af3bba01d13}</Project>
       <Name>SuperheroesInc.DATA.EF</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

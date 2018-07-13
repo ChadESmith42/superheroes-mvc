@@ -1,10 +1,10 @@
 ﻿@model SuperheroesInc.DATA.EF.Cours
 
 @{
-    ViewBag.Title = "Create";
+    ViewBag.Title = "Create New Course";
 }
 
-<h2>ViewBag.Title New Course</h2>
+<h2>@ViewBag.Title</h2>
 
 
 @using (Html.BeginForm()) 
@@ -64,6 +64,7 @@
 
 <div>
     @Html.ActionLink("All Courses", "Index", null, htmlAttributes: new { @class = "btn btn-primary" })
+    
 </div>
 
 @section Scripts {

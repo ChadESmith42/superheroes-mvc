@@ -13,7 +13,47 @@
 </p>
 }
 
-<table class="table">
+<div class="container">
+    <div class="row">
+        @foreach (var item in Model)
+        {
+            <div class="col-md-4">
+                <h2>@Html.DisplayFor(modelItem => item.Name)</h2>
+                <div>
+                    <h4>
+                        @Html.DisplayNameFor(model => model.Alias): @Html.DisplayFor(modelItem => item.Alias)
+                    </h4>
+                    <h4>
+                        @Html.DisplayNameFor(model => model.BirthDate): @Html.DisplayFor(modelItem => item.BirthDate)
+                    </h4>
+                    <h4>
+                        @Html.DisplayNameFor(model => model.Age): @Html.DisplayFor(modelItem => item.Age)
+                    </h4>
+                    <h4>
+                        @Html.DisplayNameFor(model => model.Sex): @Html.DisplayFor(modelItem => item.Sex)
+                    </h4>
+                    <h4>
+                        @Html.DisplayNameFor(model => model.Alignment.Description): @Html.DisplayFor(modelItem => item.Alignment.Description)
+                    </h4>
+                    <h4>
+                        @Html.DisplayNameFor(model => model.SourceOfPower.Description): @Html.DisplayFor(modelItem => item.SourceOfPower.Description)
+                    </h4>
+                    <div class="btn-group space-added">
+                        @Html.ActionLink("Details", "Details", new { id = item.ID }, htmlAttributes: new { @class = "btn btn-primary" })
+                        @Html.ActionLink("Edit", "Edit", new { id = item.ID }, htmlAttributes: new { @class = "btn btn-warning" })
+                        @Html.ActionLink("Delete", "Delete", new { id = item.ID }, htmlAttributes: new { @class = "btn btn-danger" })
+                    </div>
+                </div>
+
+            </div>
+
+        }
+    </div>
+</div>
+
+
+
+@*<table class="table data-table">
     <thead>
         <tr>
             <th>
@@ -81,4 +121,4 @@
             </tr>
         }
     </tbody>
-</table>
+</table>*@

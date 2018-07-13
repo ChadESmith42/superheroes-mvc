@@ -3,29 +3,26 @@
 }
 
 <div class="jumbotron">
-    <h1>ASP.NET</h1>
-    <p class="lead">ASP.NET is a free web framework for building great Web sites and Web applications using HTML, CSS and JavaScript.</p>
-    <p><a href="http://asp.net" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>
+    <h1>Mission Statement</h1>
+    <p class="lead">Our mission is to provide protection against villains and educate our community about safety. We hope to develop a community of pro-active citizens who are vigilant in keeping streets safe through knowledge and awareness.</p>
 </div>
 
 <div class="row">
     <div class="col-md-4">
-        <h2>Getting started</h2>
+        <h2>Programs and Services</h2>
         <p>
-            ASP.NET MVC gives you a powerful, patterns-based way to build dynamic websites that
-            enables a clean separation of concerns and gives you full control over markup
-            for enjoyable, agile development.
+            Super Heroes, Inc. is a dedicated group of heroes who strive to provide programs that emphasize growth through education, safety training, and challenges. We provide citizens of all ages with hands-on, interactive programs to encourage safety and respect for others.
         </p>
-        <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301865">Learn more &raquo;</a></p>
+        <p><a href="@Url.Action("Index","Cours")" class="btn btn-primary">See our classes!</a></p>
     </div>
     <div class="col-md-4">
-        <h2>Get more libraries</h2>
-        <p>NuGet is a free Visual Studio extension that makes it easy to add, remove, and update libraries and tools in Visual Studio projects.</p>
-        <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301866">Learn more &raquo;</a></p>
+        <h2>Meet Our Personnel</h2>
+        <p>Search our database of heroes, villains, anti-heroes, neutral actors, and people hated equally by everyone!</p>
+        <p><a class="btn btn-primary" href="@Url.Action("Index","Characters")">Meet Our People!</a></p>
     </div>
     <div class="col-md-4">
-        <h2>Web Hosting</h2>
-        <p>You can easily find a web hosting company that offers the right mix of features and price for your applications.</p>
-        <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301867">Learn more &raquo;</a></p>
+        <h2>Be A Part of Your Communities' Safety!</h2>
+        <p>Contact us to learn how you can be a part of the solution.</p>
+        <p><a class="btn btn-primary" href="@Url.Action("Contact","Home")">Contact Us!</a></p>
     </div>
 </div>
